@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <link rel="stylesheet" href="/css/master.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+  </head>
+  <body>
+
+    <header>
+      NodeBlog
+
+      <div class="actions">
+        <a href="/compose">Compose</a>
+      </div>
+
+
+
+
+
+
+    </header>
+
+    <div class="wrapper">
+
+
+
+      <div class="home">
+        {{#articles}}
+          <article class="">
+            <a href="/articles/{{id}}"><h2> {{title}} </h2></a>
+            <small class="date">{{publishedAt}}</small>
+            <p>
+              {{text}}
+            </p>
+
+
+          </article>
+
+
+          <form method="post" action="/comment/{{id}}">
+            <input type="text" name='bodyfield'/>
+            <input type="submit" name="btn" />
+          </form>
+
+          {{#comment}}
+          <h6>Comments:</h6>
+          <p>{{body}}</p>
+          {{/comment}}
+
+
+        {{/articles}}
+
+      </div>
+
+    </div>
+
+
+    <script src="/js/client.js" charset="utf-8"></script>
+  </body>
+</html>
